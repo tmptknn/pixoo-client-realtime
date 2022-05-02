@@ -278,8 +278,11 @@ class Pixoo(object):
 
 
         if (r,g,b) not in palette:
-          palette.append((r,g,b))
-          idx = len(palette)-1
+          if len(palette) <255:
+            palette.append((r,g,b))
+            idx = len(palette)-1
+          else:
+            idx = 255
         else:
           idx = palette.index((r,g,b))
         pixels.append(idx)
